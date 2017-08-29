@@ -1,6 +1,8 @@
 <?php
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-function my_theme_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-}
+    function revision_enqueue_scripts() {
+        wp_enqueue_style("style", get_stylesheet_uri());
+        wp_enqueue_script("jquery");
+    }
+    add_action( 'wp_enqueue_scripts', 'revision_enqueue_scripts' );
+    add_theme_support( 'post-thumbnails' );
 ?>
